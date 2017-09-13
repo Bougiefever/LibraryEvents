@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
     <a class="navbar-brand" href="#">Library Events</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,10 +28,30 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
-  </nav>
-<div class="container-fluid">
-  <router-outlet></router-outlet>
-</div>
+  </nav> -->
+  <md-toolbar color="primary">
+    <button md-icon-button (click)="sidenav.toggle()">
+        <md-icon class="md-24" >menu</md-icon>
+    </button>
+    <h1>Brown County Library Events</h1>                                        
+  </md-toolbar>
+  <md-sidenav-container>
+    <md-sidenav #sidenav mode="over" class="app-sidenav" color="accent">
+      <md-nav-list>
+        <md-list>
+        <md-list-item><a md-list-item routerLink="events" routerLinkActive="menu-active">Events</a></md-list-item>
+        <md-list-item><a md-list-item routerLink="instructors" routerLinkActive="menu-active">Instructors</a></md-list-item>
+        <md-list-item><a md-list-item routerLink="scheduled-events" routerLinkActive="menu-active">Scheduled Events</a></md-list-item>
+        </md-list>
+      </md-nav-list>
+    </md-sidenav>
+
+    <div class="app-content" style="padding-left: 210px;">
+      <router-outlet></router-outlet>
+    </div>
+  </md-sidenav-container>
+  
+
 
 
 

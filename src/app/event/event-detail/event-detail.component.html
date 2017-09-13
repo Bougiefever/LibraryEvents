@@ -1,3 +1,14 @@
-<h1>{{event.name}}</h1>
-  event-detail works! {{event.url}}
+
+<md-card style="width: 400px;">
+    <md-card-header>
+        <md-card-title>{{event.name}}</md-card-title>
+<img md-card-avatar src="https://source.unsplash.com/random/200x200">
+
+</md-card-header> 
+<img md-card-image [src]="[event.imageUrl]">
+<md-card-content>
+  <p>{{event.description}}</p>
+</md-card-content>
+</md-card>
+
 

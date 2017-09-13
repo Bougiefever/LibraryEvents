@@ -24,41 +24,10 @@ import { EventDetailComponent } from './event/event-detail/event-detail.componen
 import { HomeComponent } from './home/home.component';
 import { EventEditComponent } from './event/event-edit/event-edit.component';
 import { EventResolverService } from "./shared/services/event-resolver.service";
+import { MaterialDesignModule } from './shared/material-design/material-design.module';
+import { routes } from './app-routing';
+import { InstructorDetailComponent } from './instructor/instructor-detail/instructor-detail.component';
 
-const routes: Route[] = [
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'events',
-    component: EventListComponent
-  },
-  {
-    path: 'events/:url',
-    component: EventDetailComponent,
-    resolve: {
-      event: EventResolverService
-    }
-  },
-  {
-    path: 'instructors',
-    component: InstructorListComponent
-  },
-  {
-    path: 'scheduled-events',
-    component: ScheduledEventListComponent
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    redirectTo: 'events'
-  }
-]
 
 @NgModule({
   declarations: [
@@ -68,7 +37,8 @@ const routes: Route[] = [
     ScheduledEventListComponent,
     EventDetailComponent,
     HomeComponent,
-    EventEditComponent
+    EventEditComponent,
+    InstructorDetailComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -79,7 +49,8 @@ const routes: Route[] = [
     HttpModule,
     NoopAnimationsModule,
     RouterModule.forRoot(routes),
-    NgbModule
+    NgbModule,
+    MaterialDesignModule
   ],
   providers: [
     EventsService,

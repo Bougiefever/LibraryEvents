@@ -10,8 +10,8 @@
     <tbody>
       <tr *ngFor="let instructor of (instructors$ | async)">
         <td style="width: 200px;">{{instructor.name}}</td>
-        <td>{{instructor.url}}</td>
-        <td style="width: 200px;"><img [src]="instructor.imageUrl"  class="img-thumbnail">
+        <td><a href="instructors/{{instructor.url}}"> {{instructor.url}}</a></td>
+        <td style="width: 200px;"><img [src]="instructor.imageUrl" style="width:200px;">
       </tr>
     </tbody>
   </table>
