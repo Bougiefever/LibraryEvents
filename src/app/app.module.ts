@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { HttpModule } from '@angular/http';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
@@ -13,14 +14,32 @@ import { Route, RouterModule } from "@angular/router";
 import { InstructorListComponent } from './instructor/instructor-list/instructor-list.component';
 
 import { ScheduledEventListComponent } from "./scheduled-event/scheduled-event-list/scheduled-event-list.component";
-import { EventsService } from "./shared/services/events.service";
+import { EventsService, InstructorsService } from "./shared/services";
 import { environment } from '../environments/environment';
 
 
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { HomeComponent } from './home/home.component';
+import { EventEditComponent } from './event/event-edit/event-edit.component';
+import { EventResolverService } from "./shared/services/event-resolver.service";
+
 const routes: Route[] = [
   {
-      path: 'events',
-      component: EventListComponent
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'events',
+    component: EventListComponent
+  },
+  {
+    path: 'events/:url',
+    component: EventDetailComponent,
+    resolve: {
+      event: EventResolverService
+    }
   },
   {
     path: 'instructors',
@@ -32,7 +51,7 @@ const routes: Route[] = [
   },
   {
     path: '',
-    redirectTo: 'events',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -46,7 +65,10 @@ const routes: Route[] = [
     AppComponent,
     EventListComponent,
     InstructorListComponent,
-    ScheduledEventListComponent
+    ScheduledEventListComponent,
+    EventDetailComponent,
+    HomeComponent,
+    EventEditComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -54,11 +76,16 @@ const routes: Route[] = [
     AngularFireAuthModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
     NoopAnimationsModule,
     RouterModule.forRoot(routes),
     NgbModule
   ],
-  providers: [EventsService],
+  providers: [
+    EventsService,
+    InstructorsService,
+    EventResolverService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

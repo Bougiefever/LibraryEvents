@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from "rxjs/Rx";
+import { Instructor } from "../../shared/models";
+import { InstructorsService } from "../../shared/services/";
 
 @Component({
   selector: 'app-instructor-list',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstructorListComponent implements OnInit {
 
-  constructor() { }
+  private instructors$ : Observable<Instructor[]>
+
+  constructor(private instructorService: InstructorsService) { }
 
   ngOnInit() {
+    this.instructors$ = this.instructorService.getAllEvents();
   }
 
 }
