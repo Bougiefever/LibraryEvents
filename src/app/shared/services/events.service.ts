@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Rx';
 import { AngularFireDatabase } from "angularfire2/database";
 import { LibraryEvent } from "../models";
 import { environment } from '../../../environments/environment';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -29,12 +31,10 @@ export class EventsService {
   getEventByUrl(url: string) : Observable<LibraryEvent> {
     return this.db.list('events', {
       query: {
-        orderByChild: 'url',
-        equalTo: url
+          orderByChild: 'url',
+          equalTo: url
       }
     })
-    .map(events => LibraryEvent.jsonToObject(event[0]))
-    .do(console.log);
-      
+    .map(results => results[0]);
   }
 }

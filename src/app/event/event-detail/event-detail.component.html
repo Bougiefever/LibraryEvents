@@ -1,14 +1,18 @@
-
+<button md-raised-button color="primary">New Event</button>
+<button md-raised-button color="primary">Edit Event</button>
+<button md-raised-button color="warn">Delete Event</button>
 <md-card style="width: 400px;">
-    <md-card-header>
-        <md-card-title>{{event.name}}</md-card-title>
-<img md-card-avatar src="https://source.unsplash.com/random/200x200">
+  <md-card-header>
+    <md-card-title>
+      <h1>{{event.name}}</h1>
+    </md-card-title>
+    <!-- <img md-card-avatar src="https://source.unsplash.com/random/200x200"> -->
 
-</md-card-header> 
-<img md-card-image [src]="[event.imageUrl]">
-<md-card-content>
-  <p>{{event.description}}</p>
-</md-card-content>
+  </md-card-header>
+  <img md-card-image [src]="[event.imageUrl]">
+  <md-card-content>
+    <p>{{event.description}}</p>
+  </md-card-content>
 </md-card>
 
 

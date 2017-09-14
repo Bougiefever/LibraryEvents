@@ -31,6 +31,10 @@ libraryData.events.forEach( event => {
         name: person.name,
         url: person.url,
         imageUrl: person.imageUrl,
+        username: person.username,
+        bio: person.bio,
+        phone: person.phone,
+        email: person.email,
         startDate: new Date(person.startDate),
     });
 

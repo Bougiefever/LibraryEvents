@@ -13,4 +13,14 @@ export class InstructorsService {
       .do(console.log)
       .map(Instructor.jsonArrayToObjectArray);
   }
+
+  getInstructorsByUrl(url: string) : Observable<Instructor> {
+    return this.db.list('instructors', {
+      query: {
+          orderByChild: 'url',
+          equalTo: url
+      }
+    })
+    .map(results => results[0]);
+  }
 }

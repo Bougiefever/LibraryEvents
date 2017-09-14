@@ -23,10 +23,11 @@ import 'rxjs/add/operator/do';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import { HomeComponent } from './home/home.component';
 import { EventEditComponent } from './event/event-edit/event-edit.component';
-import { EventResolverService } from "./shared/services/event-resolver.service";
+import { EventResolver } from "./shared/services/event-resolver";
 import { MaterialDesignModule } from './shared/material-design/material-design.module';
 import { routes } from './app-routing';
 import { InstructorDetailComponent } from './instructor/instructor-detail/instructor-detail.component';
+import { InstructorResolver } from './shared/services/instructor-resolver';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { InstructorDetailComponent } from './instructor/instructor-detail/instru
   providers: [
     EventsService,
     InstructorsService,
-    EventResolverService
+    EventResolver,
+    InstructorResolver
   ],
   bootstrap: [AppComponent]
 })

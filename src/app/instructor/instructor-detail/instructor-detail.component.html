@@ -1,3 +1,19 @@
-<p>
-  instructor-detail works!
-</p>
+<md-card style="width: 400px;">
+    <md-card-header>
+      <md-card-title>
+        <h1>{{instructor.name}}</h1>
+      </md-card-title>
+      <img md-card-avatar src="https://source.unsplash.com/random/200x200">
+  
+    </md-card-header>
+    <img md-card-image [src]="[instructor.imageUrl]">
+    <md-card-content>
+      <p><span>Name: </span>{{instructor.name}}</p>
+      <p><span>Username: </span>{{instructor.username}}</p>
+      <p><span>Phone: </span>{{instructor.phone}}</p>
+      <p><span>Bio: </span>{{instructor.bio}}</p>
+    </md-card-content>
+    <md-card-actions>
+      <button md-fab>LIKE</button>
+    </md-card-actions>
+  </md-card>
