@@ -8,7 +8,7 @@ const eventsRef = database().ref('events');
 const instructorsRef = database().ref('instructors');
 const calendarRef = database().ref('scheduledEvents');
 const eventInstructorLinkRef = database().ref('eventInstructorLink');
-const eventCalendarLinkRef = database().ref('eventCalendarLink');
+const eventCalendarLinkRef = database().ref('eventsScheduledLink');
  
 libraryData.events.forEach( event => {
 
@@ -41,9 +41,13 @@ libraryData.events.forEach( event => {
     console.log('associating instructor to event ');
     const instructorEventLink = eventInstructorLink.child(instructorRef.key);
     instructorEventLink.set(true);
+    const myEventsRef = instructorRef.child('my-events');
+    const myEventRef = myEventsRef.child(eventRef.key);
+    myEventRef.set(true);
 
     
     const instructorToScheduledEventsRef = instructorRef.child('scheduledEvents');
+    
     person.scheduledEvents.forEach((scheduled:any) => {
 
         console.log('adding calendar item ', scheduled.eventDate);

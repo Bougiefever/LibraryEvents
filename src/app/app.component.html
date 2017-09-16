@@ -1,54 +1,23 @@
-
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
-    <a class="navbar-brand" href="#">Library Events</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" 
-          routerLink="events"
-          routerLinkActive="menu-active">Events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" 
-          routerLink="instructors"
-          routerLinkActive="menu-active">Instructors</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" 
-            routerLink="scheduled-events"
-            routerLinkActive="menu-active">Scheduled Events</a>
-          </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav> -->
   <md-toolbar color="primary">
     <h1>Brown County Library Events</h1>                                        
   </md-toolbar>
     <md-toolbar-row>
     <button md-icon-button (click)="sidenav.toggle()">
-        <md-icon class="md-24" >menu</md-icon>
+        <md-icon class="md-24">menu</md-icon>
     </button>
   </md-toolbar-row>
   <md-sidenav-container>
-    <md-sidenav #sidenav mode="push" class="app-sidenav" color="accent" isFocusTrapEnabled="true">
+    <md-sidenav #sidenav mode="push" class="app-sidenav" md-is-locked-open color="accent">
       <md-nav-list>
         <md-list>
-        <md-list-item><a md-list-item routerLink="events" routerLinkActive="menu-active">Events</a></md-list-item>
-        <md-list-item><a md-list-item routerLink="instructors" routerLinkActive="menu-active">Instructors</a></md-list-item>
-        <md-list-item><a md-list-item routerLink="scheduled-events" routerLinkActive="menu-active">Scheduled Events</a></md-list-item>
+          <md-list-item><a md-list-item routerLink="events" routerLinkActive="menu-active">Events</a></md-list-item>
+          <md-list-item><a md-list-item routerLink="instructors" routerLinkActive="menu-active">Instructors</a></md-list-item>
+          <md-list-item><a md-list-item routerLink="scheduled-events" routerLinkActive="menu-active">Scheduled Events</a></md-list-item>
         </md-list>
       </md-nav-list>
     </md-sidenav>
 
-    <div class="app-content" style="padding-left: 210px;">
+    <div layout="column" layout-md="column" style="width: 800px; padding-left: 150px;">
       <router-outlet></router-outlet>
     </div>
   </md-sidenav-container>

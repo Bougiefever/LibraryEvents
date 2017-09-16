@@ -16,4 +16,7 @@ export class InstructorDetailComponent implements OnInit {
     this.instructor = this.route.snapshot.data['instructor'];
   }
 
+  delete() {
+    console.log('del');
+  }
 }

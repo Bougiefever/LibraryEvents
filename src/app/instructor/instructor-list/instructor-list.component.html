@@ -4,14 +4,14 @@
       <tr>
         <th>Name</th>
         <th>Url</th>
-        <th>Image</th>
+        <th>Phone</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let instructor of (instructors$ | async)">
         <td style="width: 200px;">{{instructor.name}}</td>
         <td><a href="instructors/{{instructor.url}}"> {{instructor.url}}</a></td>
-        <td style="width: 200px;"><img [src]="instructor.imageUrl" style="width:200px;">
+        <td >{{instructor.phone}}</td>
       </tr>
     </tbody>
   </table>

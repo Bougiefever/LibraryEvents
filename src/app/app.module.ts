@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
@@ -28,6 +27,8 @@ import { MaterialDesignModule } from './shared/material-design/material-design.m
 import { routes } from './app-routing';
 import { InstructorDetailComponent } from './instructor/instructor-detail/instructor-detail.component';
 import { InstructorResolver } from './shared/services/instructor-resolver';
+import { NewEventComponent } from './event/new-event/new-event.component';
+import { InstructorEditComponent } from './instructor/instructor-edit/instructor-edit.component';
 
 
 @NgModule({
@@ -39,7 +40,9 @@ import { InstructorResolver } from './shared/services/instructor-resolver';
     EventDetailComponent,
     HomeComponent,
     EventEditComponent,
-    InstructorDetailComponent
+    InstructorDetailComponent,
+    NewEventComponent,
+    InstructorEditComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -50,7 +53,6 @@ import { InstructorResolver } from './shared/services/instructor-resolver';
     HttpModule,
     NoopAnimationsModule,
     RouterModule.forRoot(routes),
-    NgbModule,
     MaterialDesignModule
   ],
   providers: [
