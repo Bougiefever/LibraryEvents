@@ -11,7 +11,7 @@ export const libraryData = {
             "name": "Chris Coe",
             "startDate": "2012-4-15",
             "imageUrl": "https://firebasestorage.googleapis.com/v0/b/browncountylibraryevents.appspot.com/o/knitting-grandpa.jpg?alt=media&token=71356a67-39a1-43fa-acaf-d5a25cad5108",
-            "bio": "I started knitting at age seven because it was safer than embroidery, and landed my first professional gig in 1962, at age 14, when I was commissioned  to knit three angora sweaters for a girl at my school.<br /><br />Thus I grew up with knitting as much a part of my world as eating. It’s what we did. And although my primary profession was teaching high school English, when my son was little and I wanted to work from home it made sense to open a knitting school next door. ",
+            "bio": "I started knitting at age seven because it was safer than embroidery, and landed my first professional gig in 1962, at age 14, when I was commissioned  to knit three angora sweaters for a girl at my school. Thus I grew up with knitting as much a part of my world as eating. It’s what we did. And although my primary profession was teaching high school English, when my son was little and I wanted to work from home it made sense to open a knitting school next door. ",
             "phone": "800-123-1234",
             "email": "elder@yahoo.com",
             "likes": 25,

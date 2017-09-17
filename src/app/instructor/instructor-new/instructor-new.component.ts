@@ -11,34 +11,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class InstructorNewComponent implements OnInit {
 
-  form: FormGroup;
-
   constructor(
-    private formBuilder: FormBuilder,
     private instructorsService: InstructorsService,
     private snackbar: MdSnackBar) { }
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
-      username: ['', Validators.required],
-      name: ['', Validators.required],
-      imageUrl: [''],
-      bio: ['', Validators.required],
-      phone: ['', Validators.required],
-      email: ['', Validators.required]
-    });
+    
   }
 
-  save() {
+  save(form) {
     
-     this.instructorsService.addNewInstructor(this.form.value)
+     this.instructorsService.addNewInstructor(form.value)
        .subscribe(() => 
        {
-         this.form.reset();
+         form.reset();
          this.snackbar.open('New instructor saved', 'Ok', {
            duration: 3000
+          });
         });
-      });
   }
 
 }

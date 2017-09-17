@@ -32,6 +32,7 @@ import { InstructorEditComponent } from './instructor/instructor-edit/instructor
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InstructorNewComponent } from './instructor/instructor-new/instructor-new.component';
 import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
+import { InstructorFormComponent } from './instructor/instructor-form/instructor-form.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.c
     NewEventComponent,
     InstructorEditComponent,
     InstructorNewComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    InstructorFormComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Instructor } from '../../shared/models';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { InstructorsService } from '../../shared/services';
+import { MdSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-instructor-edit',
@@ -10,26 +12,37 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class InstructorEditComponent implements OnInit {
   instructor: Instructor;
-  form: FormGroup;
-  constructor(private route: ActivatedRoute,
-      private fb: FormBuilder) { 
-    route.data
-    .do(console.log)
-    .subscribe(
-    data => this.instructor = data['instructor']);
 
-    // this.form = this.fb.group({
-    //   username: ['', Validators.required],
-    //   name: ['', Validators.required],
-    //   url: ['', Validators.required],
-    //   imageUrl: ['', Validators.required],
-    //   bio: ['', Validators.required],
-    //   phone: ['', Validators.required],
-    //   email: ['', Validators.required]
-    // })
+  constructor(
+      private route: ActivatedRoute,
+      private instructorsService: InstructorsService,
+      private snackbar: MdSnackBar
+    ) { 
+
+    route.data
+        .subscribe(
+        data => this.instructor = data['instructor']
+    );
   }
 
   ngOnInit() {
     
   }
+
+  save(instructor) {
+    console.log('edit component: ' + instructor.bio);
+    this.instructorsService.updateInstructor(this.instructor.$key, instructor)
+      .subscribe(() => {
+        this.snackbar.open('Instructor saved', 'Ok', {
+          duration: 3000
+         });
+      });
+      
+
+
+
+    }
+
+
+    
 }

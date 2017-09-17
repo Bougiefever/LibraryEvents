@@ -15,8 +15,6 @@ export class EventDetailComponent implements OnInit {
 
   ngOnInit() {
      this.event = this.route.snapshot.data['event'];
-     
-     //.subscribe(data => this.event = data['event']);
   }
 
 }

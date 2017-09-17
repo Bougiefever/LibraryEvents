@@ -35,6 +35,6 @@ export class EventsService {
           equalTo: url
       }
     })
-    .map(results => results[0]);
+    .map(results => LibraryEvent.jsonToObject(results[0]));
   }
 }

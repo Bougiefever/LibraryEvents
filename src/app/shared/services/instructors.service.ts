@@ -35,6 +35,11 @@ export class InstructorsService {
        .push(instructor));
   }
 
+  updateInstructor($key: string, instructor: Instructor) : Observable<any> {
+    const instructorRef = this.firebaseApp.database().ref().child(`/instructors/${$key}`);
+    return Observable.fromPromise(instructorRef.set(instructor));
+  }
+
   deleteInstructor($key: string) : Observable<any> {
      return Observable.fromPromise(this.firebaseApp.database().ref('instructors/' + $key)
      .remove());
