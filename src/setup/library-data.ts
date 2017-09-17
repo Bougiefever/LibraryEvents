@@ -14,6 +14,7 @@ export const libraryData = {
             "bio": "I started knitting at age seven because it was safer than embroidery, and landed my first professional gig in 1962, at age 14, when I was commissioned  to knit three angora sweaters for a girl at my school.<br /><br />Thus I grew up with knitting as much a part of my world as eating. It’s what we did. And although my primary profession was teaching high school English, when my son was little and I wanted to work from home it made sense to open a knitting school next door. ",
             "phone": "800-123-1234",
             "email": "elder@yahoo.com",
+            "likes": 25,
             "scheduledEvents": [
                 {
                   "eventDate": "2017-10-15T18:30",
@@ -35,6 +36,7 @@ export const libraryData = {
               "bio": "It’s not your grandmother’s craft anymore. A recent viral crafts meme: arm knitting, in which stitches are formed using not needles but the knitter’s arms and hands. I don’t arm knit. My approach is rigorously professional. I will not knit in public. He won’t make socks or hats. I avoid synthetic yarn. He won't knit a sweater for my partner of eight years, a corporate lawyer who works in Washington, although that’s just common sense. Everybody knows about the boyfriend sweater curse.",
               "phone": "800-123-1234",
               "email": "ferris@yahoo.com",
+              "likes": 5,
               "scheduledEvents": [
                   {
                     "eventDate": "2017-12-15T18:30",
@@ -59,6 +61,7 @@ export const libraryData = {
             "bio": "Phil Collins was born in Chiswick, London, England, to Winifred (Strange), a theatrical agent, Greville Philip Austin Collins, an insurance agent. He spent most of his early entertainment life as a young actor and model. ",
             "phone": "800-123-1234",
             "email": "phil@yahoo.com",
+            "likes": 8,
             "scheduledEvents": [
                 {
                   "eventDate": "2017-10-16T18:30",

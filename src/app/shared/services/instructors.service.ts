@@ -28,13 +28,18 @@ export class InstructorsService {
           equalTo: username
       }
     })
-    .map(results => results[0]);
+    .map(results => results[0]).do(console.log);
   }
 
   addNewInstructor(instructor: any) { 
-    const key = this.firebaseApp.database().ref().child('/instructors').push(instructor).key;
-    //const k = this.fb.database().ref().child('/items'/').push().key;
-
-    //return Observable.fromPromise(this.db.list('instructors').push(instructor))
+    // this.firebaseApp.database().ref().child('/instructors')
+    //   .push(instructor)
+    //   .then((item) => { 
+    //     console.log(item);
+    //     console.log(item.key); 
+    // });
+    
+    return Observable.fromPromise(this.firebaseApp.database().ref().child('/instructors')
+       .push(instructor));
   }
 }

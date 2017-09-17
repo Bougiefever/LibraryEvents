@@ -6,6 +6,7 @@ export class Instructor {
     phone: string;
     email: string;
     bio: string;
+    likes: number;
 
 
     static jsonArrayToObjectArray(array) : Instructor[] {
@@ -13,8 +14,7 @@ export class Instructor {
     }
 
     static jsonToObject({$key, bio, username, name, imageUrl,
-            phone, email}) : Instructor {
-        console.log('json to instructor: ' + $key + ', bio: ' + bio, ' username: ' + username);
+            phone, email, likes}) : Instructor {
         const instructor = new Instructor();
         instructor.$key = $key;
         instructor.name = name;
@@ -23,7 +23,7 @@ export class Instructor {
         instructor.email = email;
         instructor.username = username;
         instructor.bio = bio;
-        console.log(instructor);
+        instructor.likes = likes;
         return instructor;
     }
 }

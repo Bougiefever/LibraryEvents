@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InstructorsService } from '../../shared/services/instructors.service';
 import { MdSnackBar } from '@angular/material';
 import {Observable} from "rxjs/Rx";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'instructor-new',
@@ -10,22 +11,34 @@ import {Observable} from "rxjs/Rx";
 })
 export class InstructorNewComponent implements OnInit {
 
-  constructor(private instructorsService: InstructorsService,
+  form: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private instructorsService: InstructorsService,
     private snackbar: MdSnackBar) { }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      username: ['', Validators.required],
+      name: ['', Validators.required],
+      imageUrl: [''],
+      bio: ['', Validators.required],
+      phone: ['', Validators.required],
+      email: ['', Validators.required]
+    });
   }
 
-  save(form) {
-    console.log(form.form.value);
-     this.instructorsService.addNewInstructor(form.form.value);
-      // .subscribe(() => 
-      // {
-      //   form.reset();
-      //   this.snackbar.open('New instructor saved', 'Ok', {
-      //     duration: 2000
-      //   });
-      // })
+  save() {
+    
+     this.instructorsService.addNewInstructor(this.form.value)
+       .subscribe(() => 
+       {
+         this.form.reset();
+         this.snackbar.open('New instructor saved', 'Ok', {
+           duration: 3000
+        });
+      });
   }
 
 }

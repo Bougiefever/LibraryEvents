@@ -30,7 +30,6 @@ import { InstructorDetailComponent } from './instructor/instructor-detail/instru
 import { InstructorResolver } from './shared/services/instructor-resolver';
 import { NewEventComponent } from './event/new-event/new-event.component';
 import { InstructorEditComponent } from './instructor/instructor-edit/instructor-edit.component';
-import { InstructorFormComponent } from './instructor/instructor-form/instructor-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InstructorNewComponent } from './instructor/instructor-new/instructor-new.component';
 
@@ -47,7 +46,6 @@ import { InstructorNewComponent } from './instructor/instructor-new/instructor-n
     InstructorDetailComponent,
     NewEventComponent,
     InstructorEditComponent,
-    InstructorFormComponent,
     InstructorNewComponent
   ],
   imports: [

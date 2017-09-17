@@ -14,13 +14,14 @@ export class InstructorDetailComponent implements OnInit {
 
   ngOnInit() {
     this.instructor = this.route.snapshot.data['instructor'];
+    console.log(this.instructor);
   }
 
   delete() {
     console.log('del');
   }
 
-  edit() {
+  like() {
     
   }
 }

@@ -35,6 +35,7 @@ libraryData.events.forEach( event => {
         phone: person.phone,
         email: person.email,
         startDate: new Date(person.startDate),
+        likes: person.likes
     });
 
     console.log('associating instructor to event ');
