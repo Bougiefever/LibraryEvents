@@ -14,7 +14,6 @@ export class InstructorResolver implements Resolve<Instructor> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Instructor>  {
     const username = route.params['username'];
-    console.log('resolving username ' + username);
     
     return this.instructorsService
     .getInstructorByUsername(route.params['username'])

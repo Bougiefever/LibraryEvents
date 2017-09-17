@@ -15,9 +15,8 @@ export class InstructorsService {
       this.firebaseApp = fb;
   }
 
-  getAllEvents() : Observable<Instructor[]> {
+  getAllInstructors() : Observable<Instructor[]> {
     return this.db.list('instructors')
-      .do(console.log)
       .map(Instructor.jsonArrayToObjectArray);
   }
 
@@ -28,18 +27,30 @@ export class InstructorsService {
           equalTo: username
       }
     })
-    .map(results => results[0]).do(console.log);
+    .map(results => results[0]);
   }
 
   addNewInstructor(instructor: any) { 
-    // this.firebaseApp.database().ref().child('/instructors')
-    //   .push(instructor)
-    //   .then((item) => { 
-    //     console.log(item);
-    //     console.log(item.key); 
-    // });
-    
     return Observable.fromPromise(this.firebaseApp.database().ref().child('/instructors')
        .push(instructor));
+  }
+
+  deleteInstructor($key: string) : Observable<any> {
+     return Observable.fromPromise(this.firebaseApp.database().ref('instructors/' + $key)
+     .remove());
+  }
+
+  addLike($key: string) {
+    this.firebaseApp.database().ref().child('queue/likes').push($key).then(() => {
+      console.log('instructor like added');
+    });
+  }
+
+  like($key: string, likes: number) {
+    console.log('likes before : ' + likes);
+    likes += 1;
+
+    const instructorRef = this.firebaseApp.database().ref('instructors/' + $key);
+      instructorRef.update({likes: likes}).then(() => console.log('instructor liked'));
   }
 }

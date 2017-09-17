@@ -15,7 +15,6 @@ export class EventResolver implements Resolve<LibraryEvent> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<LibraryEvent>  {
     const url = route.params['url'];
-    console.log('resolving url ' + url);
     
     return this.eventsService
     .getEventByUrl(route.params['url'])

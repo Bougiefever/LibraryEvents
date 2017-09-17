@@ -16,7 +16,6 @@ import { ScheduledEventListComponent } from "./scheduled-event/scheduled-event-l
 import { EventsService, InstructorsService } from "./shared/services";
 import { environment } from '../environments/environment';
 
-
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 
@@ -32,7 +31,7 @@ import { NewEventComponent } from './event/new-event/new-event.component';
 import { InstructorEditComponent } from './instructor/instructor-edit/instructor-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InstructorNewComponent } from './instructor/instructor-new/instructor-new.component';
-
+import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +45,8 @@ import { InstructorNewComponent } from './instructor/instructor-new/instructor-n
     InstructorDetailComponent,
     NewEventComponent,
     InstructorEditComponent,
-    InstructorNewComponent
+    InstructorNewComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -67,6 +67,7 @@ import { InstructorNewComponent } from './instructor/instructor-new/instructor-n
     EventResolver,
     InstructorResolver
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmDialogComponent]
 })
 export class AppModule { }
