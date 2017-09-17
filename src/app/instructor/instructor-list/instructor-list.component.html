@@ -3,15 +3,17 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Url</th>
+        <th>Username</th>
         <th>Phone</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let instructor of (instructors$ | async)">
         <td style="width: 200px;">{{instructor.name}}</td>
-        <td><a href="instructors/{{instructor.url}}"> {{instructor.url}}</a></td>
-        <td >{{instructor.phone}}</td>
+        <td><a href="instructors/{{instructor.username}}"> {{instructor.username}}</a></td>
+        <td > {{instructor.phone}}</td>
+        
       </tr>
     </tbody>
   </table>

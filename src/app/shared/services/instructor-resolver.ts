@@ -13,11 +13,11 @@ export class InstructorResolver implements Resolve<Instructor> {
   constructor(private instructorsService: InstructorsService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Instructor>  {
-    const url = route.params['url'];
-    console.log('resolving url ' + url);
+    const username = route.params['username'];
+    console.log('resolving username ' + username);
     
     return this.instructorsService
-    .getInstructorsByUrl(route.params['url'])
+    .getInstructorByUsername(route.params['username'])
     .first();
   }
 }

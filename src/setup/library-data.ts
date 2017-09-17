@@ -8,7 +8,6 @@ export const libraryData = {
         "instructors": [
           {
             "username": "knittinggrandpa",
-            "url": "knitting-grandpa",
             "name": "Chris Coe",
             "startDate": "2012-4-15",
             "imageUrl": "https://firebasestorage.googleapis.com/v0/b/browncountylibraryevents.appspot.com/o/knitting-grandpa.jpg?alt=media&token=71356a67-39a1-43fa-acaf-d5a25cad5108",
@@ -29,8 +28,7 @@ export const libraryData = {
               ]
           },
           {
-              "username": "ferris",
-              "url": "ferris-wheeler",
+              "username": "ferriswheeler",
               "name": "Ferris Wheeler",
               "startDate": "2017-9-1",
               "imageUrl": "https://firebasestorage.googleapis.com/v0/b/browncountylibraryevents.appspot.com/o/ferris_wheeler.PNG?alt=media&token=3ebfa368-af7a-48ed-9478-138acd674d37",
@@ -54,8 +52,7 @@ export const libraryData = {
         "description": "The song collection includes folk songs, popular romantic tunes, patriotic and spiritual hymns, courting songs, hit tunes from stage and film, and songs for dancing and marching. Lyrics vary from humorous to sentimental and light-hearted to introspective. ",
         "instructors": [
           {
-            "username": "phil",
-            "url": "phil-collins",
+            "username": "philcollins",
             "name": "Phil Collins",
             "startDate": "2012-4-15",
             "imageUrl": "https://firebasestorage.googleapis.com/v0/b/browncountylibraryevents.appspot.com/o/philcollins.jpg?alt=media&token=d2d53273-5222-4462-a5c9-3770edef25ed",

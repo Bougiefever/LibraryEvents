@@ -19,4 +19,8 @@ export class InstructorDetailComponent implements OnInit {
   delete() {
     console.log('del');
   }
+
+  edit() {
+    
+  }
 }

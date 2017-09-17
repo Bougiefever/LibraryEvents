@@ -18,6 +18,13 @@ export class InstructorListComponent implements OnInit {
 
   ngOnInit() {
     this.instructors$ = this.instructorService.getAllEvents();
+    const it = this.instructors$.subscribe(i => {
+      console.log('in list: ');
+      i.forEach(element => {
+        const instr: Instructor = element;
+        console.log('el: ' + element.username);
+      });
+    })
   }
 
 }

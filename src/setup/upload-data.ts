@@ -29,7 +29,6 @@ libraryData.events.forEach( event => {
 
      const instructorRef = instructorsRef.push({
         name: person.name,
-        url: person.url,
         imageUrl: person.imageUrl,
         username: person.username,
         bio: person.bio,

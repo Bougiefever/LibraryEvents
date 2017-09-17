@@ -8,6 +8,7 @@ import { ScheduledEventListComponent } from "./scheduled-event/scheduled-event-l
 import { InstructorDetailComponent } from "./instructor/instructor-detail/instructor-detail.component";
 import { InstructorResolver } from "./shared/services/instructor-resolver";
 import { InstructorEditComponent } from "./instructor/instructor-edit/instructor-edit.component";
+import { InstructorNewComponent } from "./instructor/instructor-new/instructor-new.component";
 
 export const routes: Route[] = [
     {
@@ -16,34 +17,47 @@ export const routes: Route[] = [
     },
     {
       path: 'events',
-      component: EventListComponent,
-      children: [
-        {
-          path: ':url',
-          component: EventDetailComponent,
-          resolve: {
-            event: EventResolver
-          }
-        },
-      ]
+      component: EventListComponent
     },
-    
+    {
+      path: 'events/:url',
+      component: EventDetailComponent,
+      resolve: {
+        event: EventResolver
+      }
+    },
     {
       path: 'instructors',
-      component: InstructorListComponent,
       children: [
         {
-          path: ':url',
-          component: InstructorDetailComponent,
-          resolve: {
-            instructor: InstructorResolver
-          },
-          
+          path: ':username',
+          children: [
+            {
+              path: '',
+              component: InstructorDetailComponent,
+              resolve: {
+                instructor: InstructorResolver
+              }
+            },
+            {
+              path: 'edit',
+              component: InstructorEditComponent,
+              resolve: {
+                instructor: InstructorResolver
+              }
+            }
+          ]
         },
-
+        {
+          path: '',
+          component: InstructorListComponent
+        }
       ]
     },
-    
+    {
+      path: 'new-instructor',
+      component: InstructorNewComponent
+    },
     {
       path: 'scheduled-events',
       component: ScheduledEventListComponent
@@ -57,4 +71,4 @@ export const routes: Route[] = [
       path: '**',
       redirectTo: 'events'
     }
-  ]
+  ];
