@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "loadData": "./node_modules/.bin/ts-node ./src/setup/upload-data.ts"
+    "loadData": "./node_modules/.bin/ts-node ./src/setup/upload-data.ts",
+    "runQueue": "./node_modules/.bin/ts-node ./src/setup/like-task-processor.ts"
   },
   "private": true,
   "dependencies": {

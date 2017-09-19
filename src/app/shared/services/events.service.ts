@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Http } from "@angular/http";
 
 import { Observable } from 'rxjs/Rx';
@@ -9,23 +9,29 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 
 import 'rxjs/add/operator/switchMap';
+import { FirebaseApp } from 'angularfire2';
 
 @Injectable()
 export class EventsService {
 
+  firebaseApp: FirebaseApp;
+
   constructor(
-    private db:AngularFireDatabase,
-    private http: Http
-  ) { }
+      private db:AngularFireDatabase,
+      @Inject(FirebaseApp) firebaseApp: FirebaseApp,
+      private http: Http
+  ) {
+      this.firebaseApp = firebaseApp;
+   }
 
   getAllEvents() : Observable<LibraryEvent[]> {
     return this.db.list('events')
       .map(LibraryEvent.jsonArrayToObjects);
   }
 
-  delete(eventId:string): Observable<any> {
-    const url = environment.firebaseConfig.databaseURL + '/events/' + eventId + '.json';
-    return this.http.delete(url);
+  deleteEvent($key:string): Observable<any> {
+    return Observable.fromPromise(this.firebaseApp.database().ref('events/' + $key)
+    .remove());
   }
 
   getEventByUrl(url: string) : Observable<LibraryEvent> {
@@ -36,5 +42,17 @@ export class EventsService {
       }
     })
     .map(results => LibraryEvent.jsonToObject(results[0]));
+  }
+
+  addNewEvent(event: LibraryEvent) : Observable<any> {
+    console.log('added new event');
+    //return Observable.of({it: 'it'});
+     return Observable.fromPromise(this.firebaseApp.database().ref().child('/events')
+     .push(event))
+  }
+
+  updateEvent($key: string, event: LibraryEvent) : Observable<any> {
+    const eventRef = this.firebaseApp.database().ref().child(`/events/${$key}`);
+    return Observable.fromPromise(eventRef.set(event));
   }
 }

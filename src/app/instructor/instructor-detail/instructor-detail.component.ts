@@ -15,9 +15,7 @@ import 'rxjs/add/operator/map';
 })
 export class InstructorDetailComponent implements OnInit {
   instructor$: Observable<Instructor>;
-  instructor;
-  animal: string;
-  name: string;
+  instructor: Instructor;
 
   constructor(
       private route: ActivatedRoute,
@@ -26,21 +24,13 @@ export class InstructorDetailComponent implements OnInit {
       private instructorsService: InstructorsService,
       private snackbar: MdSnackBar
     ) { 
-      route.data
-      .subscribe(
-      data => this.instructor = data['instructor']);
+      this.instructor = this.route.snapshot.data['instructor'];
+      console.log(this.instructor);
       this.instructor$ = this.instructorsService.getInstructorByUsername(this.instructor.username);
-      //this.instructor$.subscribe(console.log);
       this.instructor$.subscribe(ins => this.instructor = ins);
-      console.log('instr?? ' + this.instructor.name);
-        
-        
     }
 
   ngOnInit() {
-    //this.instructor$ = this.route.snapshot.data['instructor'];
-
-//);
   }
 
   delete() {
@@ -67,7 +57,7 @@ export class InstructorDetailComponent implements OnInit {
   }
 
   like() {
-    this.instructorsService.like(this.instructor.$key, this.instructor.likes);
+    //this.instructorsService.like(this.instructor.$key, this.instructor.likes);
     this.instructorsService.addLike(this.instructor.$key);
   }
 }

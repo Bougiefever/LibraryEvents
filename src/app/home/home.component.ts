@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { LibraryEvent } from '../shared/models';
+import { EventsService } from '../shared/services';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  events$: Observable<LibraryEvent[]>;
+
+  constructor(
+    private eventsService: EventsService
+  ) { }
 
   ngOnInit() {
+    this.events$ = this.eventsService.getAllEvents();
   }
 
 }

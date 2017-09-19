@@ -11,8 +11,8 @@ export class InstructorsService {
   firebaseApp: FirebaseApp;
 
   constructor(private db: AngularFireDatabase, 
-    @Inject(FirebaseApp) fb: FirebaseApp) {
-      this.firebaseApp = fb;
+    @Inject(FirebaseApp) firebaseApp: FirebaseApp) {
+      this.firebaseApp = firebaseApp;
   }
 
   getAllInstructors() : Observable<Instructor[]> {
@@ -46,7 +46,7 @@ export class InstructorsService {
   }
 
   addLike($key: string) {
-    this.firebaseApp.database().ref().child('queue/likes').push($key).then(() => {
+    this.firebaseApp.database().ref().child('queue/tasks').push({instructorKey: $key}).then(() => {
       console.log('instructor like added');
     });
   }

@@ -9,6 +9,8 @@ import { InstructorDetailComponent } from "./instructor/instructor-detail/instru
 import { InstructorResolver } from "./shared/services/instructor-resolver";
 import { InstructorEditComponent } from "./instructor/instructor-edit/instructor-edit.component";
 import { InstructorNewComponent } from "./instructor/instructor-new/instructor-new.component";
+import { EventNewComponent } from "./event/event-new/event-new.component";
+import { EventEditComponent } from "./event/event-edit/event-edit.component";
 
 export const routes: Route[] = [
     {
@@ -17,14 +19,35 @@ export const routes: Route[] = [
     },
     {
       path: 'events',
-      component: EventListComponent
+      children: [
+        {
+          path: ':url',
+          children: [
+            {
+              path: '',
+              component: EventDetailComponent,
+              resolve: {
+                event: EventResolver
+              }
+            },
+            {
+              path: 'edit',
+              component: EventEditComponent,
+              resolve: {
+                event: EventResolver
+              }
+            }
+          ]
+        },
+        {
+          path: '',
+          component: EventListComponent
+        }
+      ]
     },
     {
-      path: 'events/:url',
-      component: EventDetailComponent,
-      resolve: {
-        event: EventResolver
-      }
+      path: 'new-event',
+      component: EventNewComponent
     },
     {
       path: 'instructors',
@@ -36,7 +59,7 @@ export const routes: Route[] = [
               path: '',
               component: InstructorDetailComponent,
               resolve: {
-                instructor: InstructorResolver
+                 instructor: InstructorResolver
               }
             },
             {

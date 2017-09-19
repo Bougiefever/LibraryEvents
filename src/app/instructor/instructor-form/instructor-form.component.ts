@@ -32,7 +32,7 @@ export class InstructorFormComponent implements OnInit, OnChanges {
     if (changes['initialValue']) {
         this.form.patchValue(changes['initialValue'].currentValue);
     }
-}
+  }
 
   reset() {
     this.form.reset();

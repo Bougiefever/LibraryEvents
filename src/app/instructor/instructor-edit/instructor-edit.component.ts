@@ -3,7 +3,8 @@ import { Instructor } from '../../shared/models';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InstructorsService } from '../../shared/services';
-import { MdSnackBar } from '@angular/material';
+import { MdSnackBar, MdDialog } from '@angular/material';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-instructor-edit',
@@ -16,7 +17,8 @@ export class InstructorEditComponent implements OnInit {
   constructor(
       private route: ActivatedRoute,
       private instructorsService: InstructorsService,
-      private snackbar: MdSnackBar
+      private snackbar: MdSnackBar,
+      private location: Location
     ) { 
 
     route.data
@@ -30,19 +32,16 @@ export class InstructorEditComponent implements OnInit {
   }
 
   save(instructor) {
-    console.log('edit component: ' + instructor.bio);
     this.instructorsService.updateInstructor(this.instructor.$key, instructor)
       .subscribe(() => {
         this.snackbar.open('Instructor saved', 'Ok', {
           duration: 3000
          });
       });
-      
+  }
 
-
-
-    }
-
-
+  goBack() {
+    this.location.back();
+  }
     
 }

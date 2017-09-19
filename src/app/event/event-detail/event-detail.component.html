@@ -1,21 +1,15 @@
 <md-card style="width: 500px;">
   <md-card-header>
     <md-card-title>
-      <h1>{{ (event$ | async)?.name }}</h1>
+      <h1>{{ event.name }}</h1>
     </md-card-title>
   </md-card-header>
-  <img md-card-image [src]="[(event$ | async)?.imageUrl]">
+  <img md-card-image [src]="[event.imageUrl]">
   <md-card-content>
-    <p><span>Name: </span>{{ (event$ | async)?.name }}</p>
-
+    <p><span>Name: </span>{{ event.name }}</p>
+    <p><span>Description: </span>{{ event.description}}</p>
   </md-card-content>
   <md-card-actions>
-    <!-- <button md-fab>LIKE</button> -->
-    <button md-icon-button color="accent">
-      <md-icon class="md-24" aria-label="Example icon-button with a heart icon" (click)="like()">favorite</md-icon>
-    </button>
-    <span class="spacer"></span>
-    <span>{{ (event$ | async)?.likes }}</span>
     <button md-raised-button color="primary" routerLink="/new-event">New event</button>
     <button md-raised-button color="primary" routerLink="edit">Edit event</button>
     <button md-raised-button color="primary" (click)="delete()">Delete event</button>
