@@ -10,8 +10,10 @@
     <p><span>Description: </span>{{ event.description}}</p>
   </md-card-content>
   <md-card-actions>
+      <button md-button color="primary" routerLink="schedule">Schedule This Event</button>
+      <button md-button color="primary" routerLink="instructors">Link Instructors</button><br /><br />
     <button md-raised-button color="primary" routerLink="/new-event">New event</button>
     <button md-raised-button color="primary" routerLink="edit">Edit event</button>
-    <button md-raised-button color="primary" (click)="delete()">Delete event</button>
+    <button md-raised-button color="accent" (click)="delete()">Delete event</button>
   </md-card-actions>
 </md-card>

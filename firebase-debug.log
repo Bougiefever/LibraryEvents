@@ -1,0 +1,139 @@
+[debug] [2017-09-20T02:50:10.726Z] ----------------------------------------------------------------------
+[debug] [2017-09-20T02:50:10.742Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ABougie\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy --only functions
+[debug] [2017-09-20T02:50:10.742Z] CLI Version:   3.11.0
+[debug] [2017-09-20T02:50:10.742Z] Platform:      win32
+[debug] [2017-09-20T02:50:10.742Z] Node Version:  v6.11.2
+[debug] [2017-09-20T02:50:10.742Z] Time:          Tue Sep 19 2017 21:50:10 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:50:10.742Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-20T02:50:10.758Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-20T02:50:10.758Z] > authorizing via signed-in user
+[debug] [2017-09-20T02:50:10.758Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-09-20T02:50:10.758Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/vMimaDOAyiMH8htsB25mM70D3NV-7aYyCqDAmwjiabL_ubM0hkHZ_FM4Qb504zuD',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Sep 19 2017 21:50:10 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:50:11.327Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-20T02:50:11.374Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/browncountylibraryevents  
+ Tue Sep 19 2017 21:50:11 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:50:12.265Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-20T02:50:12.269Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/browncountylibraryevents/tokens  
+ Tue Sep 19 2017 21:50:12 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:50:12.870Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'browncountylibraryevents'...
+[info] 
+[info] i  deploying functions
+[debug] [2017-09-20T02:50:14.131Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "firebase-admin": "~5.2.1",
+    "firebase-functions": "^0.6.2"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[info] i  runtimeconfig: ensuring necessary APIs are enabled...
+[debug] [2017-09-20T02:50:14.147Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:50:14 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:50:14.163Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:50:14 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:50:14.931Z] <<< HTTP RESPONSE 200
+[info] +  runtimeconfig: all necessary APIs are enabled
+[debug] [2017-09-20T02:50:14.932Z] <<< HTTP RESPONSE 200
+[warn] !  functions: missing necessary APIs. Enabling now...
+[debug] [2017-09-20T02:50:14.947Z] >>> HTTP REQUEST PATCH https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?updateMask=usageSettings { usageSettings: { consumerEnableStatus: 'ENABLED' } } 
+ Tue Sep 19 2017 21:50:14 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:50:16.028Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-20T02:50:26.031Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:50:26 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:50:26.832Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:50:36.847Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:50:36 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:50:37.479Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:50:47.504Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:50:47 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:50:48.359Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:50:58.382Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:50:58 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:50:59.351Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:51:09.383Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:51:09 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:51:10.211Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:51:20.230Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:51:20 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:51:21.566Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:51:31.590Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:51:31 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:51:32.554Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:51:42.570Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:51:42 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:51:43.498Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:51:53.507Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:51:53 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:51:54.245Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:52:04.280Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:52:04 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:52:05.044Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:52:15.060Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:52:15 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:52:16.332Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:52:26.347Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:52:26 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:52:27.136Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:52:37.176Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:52:37 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:52:37.686Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:52:37.690Z] >>> HTTP REQUEST PATCH https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?updateMask=usageSettings { usageSettings: { consumerEnableStatus: 'ENABLED' } } 
+ Tue Sep 19 2017 21:52:37 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:52:38.935Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-20T02:52:48.941Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:52:48 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:52:49.734Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:52:59.746Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:52:59 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:53:00.397Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:53:10.418Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:53:10 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:53:11.050Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:53:21.057Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:53:21 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:53:21.669Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:53:31.681Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:53:31 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:53:32.346Z] <<< HTTP RESPONSE 200
+[info] i  functions: waiting for APIs to activate...
+[debug] [2017-09-20T02:53:42.363Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/browncountylibraryevents?view=CONSUMER_VIEW  
+ Tue Sep 19 2017 21:53:42 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:53:43.247Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2017-09-20T02:53:43.263Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/browncountylibraryevents  
+ Tue Sep 19 2017 21:53:43 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:53:43.263Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/browncountylibraryevents/apiKeys  
+ Tue Sep 19 2017 21:53:43 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:53:43.808Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-20T02:53:44.218Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2017-09-20T02:53:55.401Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/browncountylibraryevents/configs  
+ Tue Sep 19 2017 21:53:55 GMT-0500 (Central Daylight Time)
+[debug] [2017-09-20T02:53:55.885Z] <<< HTTP RESPONSE 200

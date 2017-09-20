@@ -20,6 +20,7 @@
         </button>
     <span class="spacer"></span>
     <span>{{ (instructor$ | async)?.likes }}</span>
+    <button md-button color="primary" routerLink="events">Link To Events</button><br /><br />
     <button md-raised-button color="primary" routerLink="/new-instructor">New Instructor</button>
     <button md-raised-button color="primary" routerLink="edit">Edit Instructor</button>
     <button md-raised-button color="primary" (click)="delete()">Delete Instructor</button>

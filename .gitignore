@@ -7,6 +7,7 @@
 
 # dependencies
 /node_modules
+/functions/node_modules
 
 # IDEs and editors
 /.idea
@@ -43,3 +44,4 @@ yarn-error.log
 Thumbs.db
 
 src/environment/*.ts
+browncountylibraryevents-firebase-adminsdk-ar0mr-71ef294f02.json

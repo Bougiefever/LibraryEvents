@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\node_modules",
+    "\\node_modules\\dragula",
+    "\\node_modules\\dragula\\dist",
+    "\\node_modules\\dragula\\test",
+    "\\node_modules\\ng2-dragula",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\scheduled-event",
+    "\\src\\app\\scheduled-event\\schedule-event"
+  ],
+  "SelectedNode": "\\node_modules\\dragula\\dist\\dragula.css",
+  "PreviewInSolutionExplorer": false
+}

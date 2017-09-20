@@ -11,6 +11,7 @@ import { InstructorEditComponent } from "./instructor/instructor-edit/instructor
 import { InstructorNewComponent } from "./instructor/instructor-new/instructor-new.component";
 import { EventNewComponent } from "./event/event-new/event-new.component";
 import { EventEditComponent } from "./event/event-edit/event-edit.component";
+import { ScheduleEventComponent } from "./scheduled-event/schedule-event/schedule-event.component";
 
 export const routes: Route[] = [
     {
@@ -36,6 +37,10 @@ export const routes: Route[] = [
               resolve: {
                 event: EventResolver
               }
+            },
+            {
+              path: 'schedule',
+              component: ScheduleEventComponent
             }
           ]
         },

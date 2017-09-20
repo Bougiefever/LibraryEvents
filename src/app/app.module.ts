@@ -34,6 +34,8 @@ import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.c
 import { InstructorFormComponent } from './instructor/instructor-form/instructor-form.component';
 import { EventNewComponent } from './event/event-new/event-new.component';
 import { EventFormComponent } from './event/event-form/event-form.component';
+import { ScheduleEventComponent } from './scheduled-event/schedule-event/schedule-event.component';
+import { DragulaModule } from 'ng2-dragula';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { EventFormComponent } from './event/event-form/event-form.component';
     ConfirmDialogComponent,
     InstructorFormComponent,
     EventNewComponent,
-    EventFormComponent
+    EventFormComponent,
+    ScheduleEventComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -63,7 +66,8 @@ import { EventFormComponent } from './event/event-form/event-form.component';
     HttpModule,
     NoopAnimationsModule,
     RouterModule.forRoot(routes),
-    MaterialDesignModule
+    MaterialDesignModule,
+    DragulaModule
   ],
   providers: [
     EventsService,
