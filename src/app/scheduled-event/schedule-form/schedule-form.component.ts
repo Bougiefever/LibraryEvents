@@ -29,7 +29,7 @@ export class ScheduleFormComponent implements OnInit {
       branch: ['', Validators.required],
       eventDate: new FormControl(this.eventDate, Validators.compose([])),
       eventTime: ['', Validators.required]
-    })
+    });
   }
 
   ngOnInit() {

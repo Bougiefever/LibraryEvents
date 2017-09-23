@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { LibraryEvent, Instructor } from '../../shared/models';
 import { EventsService, InstructorsService } from '../../shared/services';
 import { ScheduleService } from '../../shared/services/schedule.service';
+import { MessagingService } from '../../shared/services/messaging.service';
 
 @Component({
   selector: 'schedule-new',
@@ -22,7 +23,8 @@ export class ScheduleNewComponent implements OnInit {
       private route: ActivatedRoute,
       private eventsService: EventsService,
       private instructorsService: InstructorsService,
-      private scheduleService: ScheduleService
+      private scheduleService: ScheduleService,
+      private messagingService: MessagingService
     ) { 
       console.log('new scheduled event');
     route.queryParamMap.do(console.log).subscribe(x => {
@@ -38,5 +40,9 @@ export class ScheduleNewComponent implements OnInit {
 
   save(form) {
     console.log(form.value);
+  }
+
+  signUpForNotifications() {
+    this.messagingService.getPermission();
   }
 }
