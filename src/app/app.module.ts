@@ -36,6 +36,9 @@ import { EventNewComponent } from './event/event-new/event-new.component';
 import { EventFormComponent } from './event/event-form/event-form.component';
 import { ScheduleEventComponent } from './scheduled-event/schedule-event/schedule-event.component';
 import { DragulaModule } from 'ng2-dragula';
+import { ScheduleNewComponent } from './scheduled-event/schedule-new/schedule-new.component';
+import { ScheduleService } from './shared/services/schedule.service';
+import { ScheduleFormComponent } from './scheduled-event/schedule-form/schedule-form.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import { DragulaModule } from 'ng2-dragula';
     InstructorFormComponent,
     EventNewComponent,
     EventFormComponent,
-    ScheduleEventComponent
+    ScheduleEventComponent,
+    ScheduleNewComponent,
+    ScheduleFormComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -72,6 +77,7 @@ import { DragulaModule } from 'ng2-dragula';
   providers: [
     EventsService,
     InstructorsService,
+    ScheduleService,
     EventResolver,
     InstructorResolver
   ],

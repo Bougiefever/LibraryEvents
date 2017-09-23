@@ -32,7 +32,7 @@ export class EventDetailComponent implements OnInit {
   delete() {
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '250px',
-      data: { title: 'Delete Instructor', message: 'Do you want to delete this instructor?' }
+      data: { title: 'Delete Event', message: 'Do you want to delete this event?' }
     });
 
     dialogRef.afterClosed().subscribe(result => {

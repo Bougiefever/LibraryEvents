@@ -1,6 +1,12 @@
 {
   "rules": {
     ".read": "auth != null",
-    ".write": "auth != null"
+    ".write": "auth != null",
+    "instructors": {
+      ".indexOn": ["username"]
+    },
+    "events": {
+      ".indexOn": ["url"]
+    }
   }
 }

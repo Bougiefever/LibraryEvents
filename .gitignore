@@ -45,3 +45,4 @@ Thumbs.db
 
 src/environment/*.ts
 browncountylibraryevents-firebase-adminsdk-ar0mr-71ef294f02.json
+.firebaserc

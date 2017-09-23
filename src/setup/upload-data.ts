@@ -55,7 +55,6 @@ libraryData.events.forEach( event => {
         const scheduledEventRef = calendarRef.push({
             eventDate: scheduled.eventDate,
             branch: scheduled.branch,
-            room: scheduled.room,
             eventId: eventRef.key,
             instructorId: instructorRef.key
         });

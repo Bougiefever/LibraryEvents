@@ -46,7 +46,7 @@ export class InstructorsService {
   }
 
   addLike($key: string) {
-    this.firebaseApp.database().ref().child('queue/tasks').push({instructorKey: $key}).then(() => {
+    this.firebaseApp.database().ref().child('queue/likes/tasks').push({instructorKey: $key}).then(() => {
       console.log('instructor like added');
     });
   }

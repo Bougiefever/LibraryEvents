@@ -12,6 +12,7 @@ import { InstructorNewComponent } from "./instructor/instructor-new/instructor-n
 import { EventNewComponent } from "./event/event-new/event-new.component";
 import { EventEditComponent } from "./event/event-edit/event-edit.component";
 import { ScheduleEventComponent } from "./scheduled-event/schedule-event/schedule-event.component";
+import { ScheduleNewComponent } from "./scheduled-event/schedule-new/schedule-new.component";
 
 export const routes: Route[] = [
     {
@@ -87,8 +88,8 @@ export const routes: Route[] = [
       component: InstructorNewComponent
     },
     {
-      path: 'scheduled-events',
-      component: ScheduledEventListComponent
+      path: 'new-schedule',
+      component: ScheduleNewComponent
     },
     {
       path: '',

@@ -1,20 +1,40 @@
   <md-toolbar color="primary">
     <h1><a href="/home">Brown County Library Events</a></h1>                                        
   </md-toolbar>
-    <md-toolbar-row>
+    <!-- <md-toolbar-row>
     <button md-icon-button (click)="sidenav.toggle()">
         <md-icon class="md-24">menu</md-icon>
     </button>
-  </md-toolbar-row>
+  </md-toolbar-row> -->
   <md-sidenav-container>
-    <md-sidenav #sidenav mode="push" class="app-sidenav" md-is-locked-open color="accent">
+    <md-sidenav 
+      #sidenav 
+      mode="side" 
+      class="app-sidenav" 
+      [opened]="true" 
+      color="accent"
+      style="background-color:lightgray">
+      <h4>Events</h4>
       <md-nav-list>
         <md-list>
-          <md-list-item><a md-list-item routerLink="events" routerLinkActive="menu-active">Events</a></md-list-item>
-          <md-list-item><a md-list-item routerLink="instructors" routerLinkActive="menu-active">Instructors</a></md-list-item>
-          <md-list-item><a md-list-item routerLink="scheduled-events" routerLinkActive="menu-active">Scheduled Events</a></md-list-item>
+          <md-list-item><a md-list-item routerLink="events" routerLinkActive="menu-active">List</a></md-list-item>
+          <md-list-item><a md-list-item routerLink="new-event" routerLinkActive="menu-active">New Event</a></md-list-item>
         </md-list>
       </md-nav-list>
+      <h4>Instructors</h4>
+      <md-nav-list>
+          <md-list>
+            <md-list-item><a md-list-item routerLink="instructors" routerLinkActive="menu-active">Instructors</a></md-list-item>
+            <md-list-item><a md-list-item routerLink="new-instructor" routerLinkActive="menu-active">New Instructor</a></md-list-item>
+          </md-list>
+        </md-nav-list>
+        <h4>Schedule</h4>
+        <md-nav-list>
+            <md-list>
+                <md-list-item><a md-list-item routerLink="scheduled-events" routerLinkActive="menu-active">Scheduled Events</a></md-list-item>
+                <md-list-item><a md-list-item routerLink="new-schedule" routerLinkActive="menu-active">Schedule an Event</a></md-list-item>
+            </md-list>
+          </md-nav-list>
     </md-sidenav>
 
     <div layout="column" layout-md="column" style="width: 800px; padding-left: 150px;">
