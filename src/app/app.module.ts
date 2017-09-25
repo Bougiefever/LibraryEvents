@@ -41,6 +41,7 @@ import { ScheduleService } from './shared/services/schedule.service';
 import { ScheduleFormComponent } from './scheduled-event/schedule-form/schedule-form.component';
 import { MessagingService } from './shared/services/messaging.service';
 import { MessageComponent } from './shared/message/message.component';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { MessageComponent } from './shared/message/message.component';
     ScheduleService,
     EventResolver,
     InstructorResolver,
-    MessagingService
+    MessagingService,
+    AuthService
   ],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmDialogComponent]

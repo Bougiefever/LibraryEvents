@@ -1,8 +1,9 @@
 <md-toolbar color="primary">
   <span><a href="/home">Brown County Library Events</a></span>
   <span class="spacer"></span>
-  <span><a href="/login">Register</a></span>
-  <span><a href="/login">Login</a></span>
+
+  <span *ngIf="!loggedIn" ><button md-button (click)="login()">Login</button></span>
+  <span *ngIf="loggedIn"><button md-button (click)="logout()">Logout</button></span>
 </md-toolbar>
 <!-- <md-toolbar-row>
     <button md-icon-button (click)="sidenav.toggle()">

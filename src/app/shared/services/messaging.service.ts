@@ -22,7 +22,7 @@ export class MessagingService {
     this.firebaseApp = firebaseApp;
    }
 
-  getPermission() {
+  getPermission(uid) {
     this.messaging.requestPermission()
       .then(() => {
         console.log("Permission granted")
@@ -30,15 +30,17 @@ export class MessagingService {
       })
       .then((token) => {
         console.log(token);
-        this.saveToken(token);
+        this.saveToken(token, uid);
       })
       .catch(() => {
         console.log("Permissio not granted");
       });
   }
 
-  saveToken(token) {
-    this.database.list('/tokens').push(token);
+  saveToken(token, uid) {
+    //this.database.list('/tokens').push(token);
+    const data = { [uid]: token }
+    this.database.object('tokens/').update(data)
   }
 
   receiveMessage() {

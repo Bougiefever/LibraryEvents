@@ -5,6 +5,8 @@ import { LibraryEvent, Instructor } from '../../shared/models';
 import { EventsService, InstructorsService } from '../../shared/services';
 import { ScheduleService } from '../../shared/services/schedule.service';
 import { MessagingService } from '../../shared/services/messaging.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { MdSnackBar } from '@angular/material';
 
 @Component({
   selector: 'schedule-new',
@@ -24,7 +26,9 @@ export class ScheduleNewComponent implements OnInit {
       private eventsService: EventsService,
       private instructorsService: InstructorsService,
       private scheduleService: ScheduleService,
-      private messagingService: MessagingService
+      private messagingService: MessagingService,
+      private authService: AuthService,
+      private snackbar: MdSnackBar
     ) { 
       console.log('new scheduled event');
     route.queryParamMap.do(console.log).subscribe(x => {
@@ -40,9 +44,22 @@ export class ScheduleNewComponent implements OnInit {
 
   save(form) {
     console.log(form.value);
+    this.scheduleService.save(
+      form.value.event.$key,
+      form.value.instructor.$key,
+      form.value.branch,
+      form.value.eventDate,
+      form.value.eventTime
+    );
   }
 
   signUpForNotifications() {
-    this.messagingService.getPermission();
+    if (!this.authService.authenticated) {
+      this.snackbar.open("You must be logged in to receive notifications", " ", {
+        duration:3000
+      });
+    } else {
+      this.messagingService.getPermission(this.authService.currentUser.uid);
+    }
   }
 }

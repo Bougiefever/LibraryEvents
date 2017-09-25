@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagingService } from './shared/services/messaging.service';
 import { MdSnackBar } from '@angular/material';
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,14 +14,44 @@ export class AppComponent implements OnInit {
 
   constructor(
     private messagingService: MessagingService,
-
+    private authService: AuthService,
+    private snackBar: MdSnackBar
   ) {
 
   }
 
   ngOnInit(): void {
-    this.messagingService.getPermission();
+    
     this.messagingService.receiveMessage();
     this.message = this.messagingService.currentMessage;
   }
+
+  login() {
+    if (!this.authService.authenticated){
+      console.log('logging in');
+      this.authService.anonymousLogin();
+      this.snackBar.open("Logged In Anonymously", "", {
+        duration:3000
+      });
+      
+    }
+    else {
+      console.log('already logged in. User id is ' + this.authService.currentUser.uid);
+      this.snackBar.open("You are already logged in", "", {
+        duration: 3000
+      });
+    }
+  }
+
+  logout() {
+    if (this.authService.authenticated) {
+      console.log('logging out');
+      this.authService.logout();
+    }
+  }
+
+  get loggedIn() : Boolean {
+    return this.authService.authenticated;
+  }
 }
+
