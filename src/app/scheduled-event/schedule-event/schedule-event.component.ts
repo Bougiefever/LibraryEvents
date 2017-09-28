@@ -25,7 +25,7 @@ export class ScheduleEventComponent implements OnInit {
       private scheduleService: ScheduleService
     ) { 
 
-    route.queryParamMap.do(console.log).subscribe(x => {
+    route.queryParamMap.subscribe(x => {
       this.eventUrl = x.get('eventUrl');
       this.instructorUsername = x.get('username');
     });

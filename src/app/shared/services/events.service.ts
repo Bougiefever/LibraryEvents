@@ -45,8 +45,6 @@ export class EventsService {
   }
 
   addNewEvent(event: LibraryEvent) : Observable<any> {
-    console.log('added new event');
-    //return Observable.of({it: 'it'});
      return Observable.fromPromise(this.firebaseApp.database().ref().child('/events')
      .push(event))
   }

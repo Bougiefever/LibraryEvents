@@ -45,7 +45,6 @@ libraryData.events.forEach( event => {
     const myEventRef = myEventsRef.child(eventRef.key);
     myEventRef.set(true);
 
-    
     const instructorToScheduledEventsRef = instructorRef.child('scheduledEvents');
     
     person.scheduledEvents.forEach((scheduled:any) => {
@@ -56,10 +55,11 @@ libraryData.events.forEach( event => {
             eventDate: scheduled.eventDate,
             branch: scheduled.branch,
             eventId: eventRef.key,
-            instructorId: instructorRef.key
+            eventName: event.name,
+            instructorId: instructorRef.key,
+            instructorName: person.name
         });
 
-        
         const instructorToScheduledEventLink =  instructorToScheduledEventsRef.child(scheduledEventRef.key);
         instructorToScheduledEventLink.set(true);
 

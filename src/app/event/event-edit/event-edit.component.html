@@ -3,9 +3,9 @@
     <h1>Edit Event</h1>
   </md-card-header>
   <md-card-content>
-    <event-form #form></event-form>
+    <event-form [initialValue]="event" #form></event-form>
   </md-card-content> 
 </md-card>
 <br />
-<button md-raised-button color="primary">Save Changes</button>
-<button md-raised-button color="primary" routerLink="/events">Return To List</button>
+<button md-raised-button color="primary" (click)="save(form.value)">Save Changes</button>
+<button md-raised-button color="primary" (click)="goBack()">Back</button>

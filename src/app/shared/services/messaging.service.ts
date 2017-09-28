@@ -38,9 +38,20 @@ export class MessagingService {
   }
 
   saveToken(token, uid) {
-    //this.database.list('/tokens').push(token);
-    const data = { [uid]: token }
-    this.database.object('tokens/').update(data)
+    const data = { userId: uid, token: token }
+    const tokenRecord = this.database.list('tokens/', {
+      query: {
+        orderByChild: 'userId',
+        equalTo: uid
+      }
+    }).subscribe(t => {
+      console.log(t);
+      if (!(t.length > 0)) {
+        this.database.list('tokens/').push(data);
+      }
+    });
+
+    //list.push(data)
   }
 
   receiveMessage() {

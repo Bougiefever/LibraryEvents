@@ -25,7 +25,6 @@ export class InstructorDetailComponent implements OnInit {
       private snackbar: MdSnackBar
     ) { 
       this.instructor = this.route.snapshot.data['instructor'];
-      console.log(this.instructor);
       this.instructor$ = this.instructorsService.getInstructorByUsername(this.instructor.username);
       this.instructor$.subscribe(ins => this.instructor = ins);
     }

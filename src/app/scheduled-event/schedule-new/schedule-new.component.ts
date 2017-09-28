@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {Location} from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import { LibraryEvent, Instructor } from '../../shared/models';
 import { EventsService, InstructorsService } from '../../shared/services';
@@ -7,6 +8,7 @@ import { ScheduleService } from '../../shared/services/schedule.service';
 import { MessagingService } from '../../shared/services/messaging.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { MdSnackBar } from '@angular/material';
+import { ScheduledEvent } from '../../shared/models';
 
 @Component({
   selector: 'schedule-new',
@@ -28,10 +30,11 @@ export class ScheduleNewComponent implements OnInit {
       private scheduleService: ScheduleService,
       private messagingService: MessagingService,
       private authService: AuthService,
-      private snackbar: MdSnackBar
+      private snackbar: MdSnackBar,
+      private location: Location
     ) { 
-      console.log('new scheduled event');
-    route.queryParamMap.do(console.log).subscribe(x => {
+
+    route.queryParamMap.subscribe(x => {
       this.eventUrl = x.get('eventUrl');
       this.instructorUsername = x.get('username');
     });
@@ -43,14 +46,15 @@ export class ScheduleNewComponent implements OnInit {
   }
 
   save(form) {
-    console.log(form.value);
-    this.scheduleService.save(
-      form.value.event.$key,
-      form.value.instructor.$key,
-      form.value.branch,
-      form.value.eventDate,
-      form.value.eventTime
-    );
+    let scheduledEvent = new ScheduledEvent();
+    scheduledEvent.eventId = form.value.event.$key;
+    scheduledEvent.eventName = form.value.event.name;
+    scheduledEvent.instructorId = form.value.instructor.$key;
+    scheduledEvent.instructorName = form.value.instructor.name;
+    scheduledEvent.branch = form.value.branch;
+    let scheduledDateTime = form.value.eventDate.toJSON().split('T')[0] + 'T' + form.value.eventTime;
+    scheduledEvent.eventDate = scheduledDateTime;
+    this.scheduleService.save(scheduledEvent);
   }
 
   signUpForNotifications() {
@@ -61,5 +65,9 @@ export class ScheduleNewComponent implements OnInit {
     } else {
       this.messagingService.getPermission(this.authService.currentUser.uid);
     }
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

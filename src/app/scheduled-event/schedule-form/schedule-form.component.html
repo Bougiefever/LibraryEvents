@@ -1,8 +1,13 @@
 <form [formGroup]="form">
+    <input name="selectedUrl" formControlName="selectedUrl" type="hidden" [value]="[(selectedEventUrl)]">
   <table>
     <tr>
       <td>
-        <md-select placeholder="Event" name="event" formControlName="event">
+        <md-select 
+        placeholder="Event" 
+        name="event" 
+        formControlName="event"
+        [compareWith]="isSelected">
           <md-option *ngFor="let event of (events$ | async)" [value]="event">{{ event.name }}</md-option>
         </md-select>
       </td>
@@ -39,7 +44,7 @@
     <tr>
       <td>
         <md-form-field>
-          <input mdInput placeholder="Event Time" type="time" name="eventTime" formControlName="eventTime" >
+          <input mdInput placeholder="Event Time" [value]="eventTime" type="time" name="eventTime" formControlName="eventTime" >
         </md-form-field>
       </td>
     </tr>

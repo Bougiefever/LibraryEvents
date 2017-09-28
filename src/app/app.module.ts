@@ -42,6 +42,10 @@ import { ScheduleFormComponent } from './scheduled-event/schedule-form/schedule-
 import { MessagingService } from './shared/services/messaging.service';
 import { MessageComponent } from './shared/message/message.component';
 import { AuthService } from './shared/services/auth.service';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { LinkToEventComponent } from './instructor/link-to-event/link-to-event.component';
+import { LinkToInstructorComponent } from './event/link-to-instructor/link-to-instructor.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +67,10 @@ import { AuthService } from './shared/services/auth.service';
     ScheduleNewComponent,
     ScheduleFormComponent,
     MessageComponent,
+    LoginComponent,
+    RegisterComponent,
+    LinkToEventComponent,
+    LinkToInstructorComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

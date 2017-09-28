@@ -18,8 +18,5 @@ export class EventListComponent implements OnInit {
     this.events$ = this.eventsService.getAllEvents();
   }
 
-  // delete($key: string) {
-  //   console.log(`delete ${$key}`);
-  // }
 
 }

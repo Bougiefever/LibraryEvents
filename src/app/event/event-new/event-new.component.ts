@@ -25,7 +25,6 @@ export class EventNewComponent implements OnInit {
   }
 
   save(form) {
-    console.log(form.value);
     this.eventsService.addNewEvent(form.value)
       .subscribe(() => 
       {

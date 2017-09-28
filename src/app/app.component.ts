@@ -24,6 +24,11 @@ export class AppComponent implements OnInit {
     
     this.messagingService.receiveMessage();
     this.message = this.messagingService.currentMessage;
+    console.log('in app component', this.authService.authenticated == true);
+    //console.log(this.authService.currentUser);
+    if (this.authService.authenticated) {
+      console.log(this.authService.authenticated);
+    }
   }
 
   login() {
