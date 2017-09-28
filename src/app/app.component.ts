@@ -48,6 +48,13 @@ export class AppComponent implements OnInit {
     }
   }
 
+  loginWithGoogle() {
+    this.authService.googleSignIn();
+    this.snackBar.open("Logged in with Google", "", {
+      duration: 3000
+    });
+  }
+
   logout() {
     if (this.authService.authenticated) {
       console.log('logging out');

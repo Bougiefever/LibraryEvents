@@ -2,14 +2,10 @@
   <span><a href="/home">Brown County Library Events</a></span>
   <span class="spacer"></span>
 
-  <span *ngIf="!loggedIn" ><button md-button (click)="login()">Login</button></span>
+  <span *ngIf="!loggedIn"><button md-button (click)="loginWithGoogle()">Login with Google</button> </span>
+  <span *ngIf="!loggedIn" ><button md-button (click)="login()">Login Anonymously</button></span>
   <span *ngIf="loggedIn"><button md-button (click)="logout()">Logout</button></span>
 </md-toolbar>
-<!-- <md-toolbar-row>
-    <button md-icon-button (click)="sidenav.toggle()">
-        <md-icon class="md-24">menu</md-icon>
-    </button>
-  </md-toolbar-row> -->
 <md-sidenav-container>
   <md-sidenav #sidenav mode="side" class="app-sidenav" [opened]="true" color="accent" style="background-color:lightgray">
     <h4>Events</h4>
