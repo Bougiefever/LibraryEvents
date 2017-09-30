@@ -35,10 +35,6 @@ export class AppComponent implements OnInit {
     if (!this.authService.authenticated){
       console.log('logging in');
       this.authService.anonymousLogin();
-      this.snackBar.open("Logged In Anonymously", "", {
-        duration:3000
-      });
-      
     }
     else {
       console.log('already logged in. User id is ' + this.authService.currentUser.uid);
@@ -49,10 +45,9 @@ export class AppComponent implements OnInit {
   }
 
   loginWithGoogle() {
+    console.log('login using Google auth');
     this.authService.googleSignIn();
-    this.snackBar.open("Logged in with Google", "", {
-      duration: 3000
-    });
+    
   }
 
   logout() {

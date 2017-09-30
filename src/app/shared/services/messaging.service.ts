@@ -2,10 +2,11 @@ import { Injectable, Inject } from '@angular/core';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase';
-import { BehaviorSubject } from 'rxjs';
 import { FirebaseApp } from 'angularfire2';
+import * as firebase from 'firebase';
+
 import { MdSnackBar } from '@angular/material';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class MessagingService {
@@ -18,22 +19,26 @@ export class MessagingService {
     private database: AngularFireDatabase,
     @Inject(FirebaseApp) firebaseApp: FirebaseApp,
     private snackbar: MdSnackBar
-  ) { 
+  ) {
     this.firebaseApp = firebaseApp;
-   }
+  }
 
   getPermission(uid) {
     this.messaging.requestPermission()
       .then(() => {
         console.log("Permission granted")
+        this.snackbar.open("You will now receive scheduled event notifications", " ", {
+          duration: 3000
+        });
         return this.messaging.getToken();
       })
       .then((token) => {
         console.log(token);
         this.saveToken(token, uid);
+
       })
       .catch(() => {
-        console.log("Permissio not granted");
+        console.log("Permission not granted");
       });
   }
 
@@ -46,7 +51,7 @@ export class MessagingService {
       }
     }).subscribe(t => {
       console.log(t);
-      if (!(t.length > 0)) {
+      if ((t.length == 0)) {
         this.database.list('tokens/').push(data);
       }
     });
@@ -55,9 +60,9 @@ export class MessagingService {
   }
 
   receiveMessage() {
-    this.messaging.onMessage((payload : any) => {
+    this.messaging.onMessage((payload: any) => {
       console.log("Message received. ", payload);
-      this.snackbar.open(payload.notification.title, payload.notification.body )
+      this.snackbar.open(payload.notification.title, payload.notification.body)
       this.currentMessage.next(payload)
     });
 

@@ -6,14 +6,11 @@ import { ScheduledEvent } from '../models';
 @Injectable()
 export class ScheduleService {
 
-  //firebaseApp: FirebaseApp;
   database: firebase.database.Database;
 
   constructor(private db: AngularFireDatabase, 
     @Inject(FirebaseApp) firebaseApp: FirebaseApp) {
-      //this.firebaseApp = firebaseApp;
       this.database = firebaseApp.database();
-      //this.sdkDb = firebaseApp.database();
   }
 
   save(scheduledEvent: ScheduledEvent) {
@@ -27,8 +24,6 @@ export class ScheduleService {
 
     saveObjects["scheduledEvents/" + key] = saveitem;
     saveObjects[`eventsScheduledLink/${eventKey}/${key}`] = true;
-    saveObjects[`instructors/${instructorKey}/scheduledEvents/${key}`] = true;
-
     this.database.ref().update(saveObjects);
   }
 }

@@ -47,12 +47,7 @@ exports.notifyScheduledEventFunction = functions.database.ref('/scheduledEvents/
             console.log(err);
           })
       });
-      
     });
-
-    // return admin.messaging().sendToDevice("cetbCQFMrxI:APA91bFwrZS3WPV-bT7XSNYTLdHJ4gyfpIRVnNCvAs4M04QVgAjGTnl4mtUQ5-jhShnsSdKUGGy49TjorPo7TEV0eNW-om4bP35A_2UjccnjaxEqIdCJx-ipCtxueKw9B41wmU8knFel", payload)
-    //   .then(res => console.log('sent notification', res))
-    //   .catch(err => console.log(err));
   });
 });
 

@@ -50,6 +50,7 @@ export class InstructorsService {
     });
   }
 
+  // old like method
   like($key: string, likes: number) {
     console.log('likes before : ' + likes);
     likes += 1;
